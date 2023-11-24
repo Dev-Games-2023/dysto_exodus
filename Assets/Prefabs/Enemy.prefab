@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1333646097
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1353076995, guid: f98a72f2891b6904d8106a895c97eb06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,6 +97,12 @@ GameObject:
   - component: {fileID: 5876195973825611816}
   - component: {fileID: 1621355714791613984}
   - component: {fileID: -352383914706321625}
+  - component: {fileID: 8779854109212152097}
+  - component: {fileID: 238357888776438740}
+  - component: {fileID: 5185857892910650772}
+  - component: {fileID: 939454129036581009}
+  - component: {fileID: 8471146229933527113}
+  - component: {fileID: 1580166659895978840}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -161,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 1
   _rotationSpeed: 100
+  _screenBorder: -30
 --- !u!114 &1621355714791613984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +216,170 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.45
+--- !u!114 &8779854109212152097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac1375227b443146a965f914a21ab4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
+--- !u!95 &238357888776438740
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 802f3c207bdbdbc42b1d7f9cf5d6ebda, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5185857892910650772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af4cade73879ad49a80a8d489a5a71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 10
+  _maximumHealth: 10
+  OnDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 238357888776438740}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -352383914706321625}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5876195973825611816}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 939454129036581009}
+        m_TargetAssemblyTypeName: EnemyDestroyController, Assembly-CSharp
+        m_MethodName: DestroyEnemy
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8471146229933527113}
+        m_TargetAssemblyTypeName: EnemyScoreAllocator, Assembly-CSharp
+        m_MethodName: AllocateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1580166659895978840}
+        m_TargetAssemblyTypeName: EnemyCollectableDrop, Assembly-CSharp
+        m_MethodName: RandomlyDropCollectable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: OnDied
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &939454129036581009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9ced46c8a9a464a83727321b5b9745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8471146229933527113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ee2640dc91afb4bbc9202e7971d179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killScore: 10
+--- !u!114 &1580166659895978840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779018818489877032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9a1eec95531224cb9e02e0b5c303c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chanceOfCollectableDrop: 0.3
