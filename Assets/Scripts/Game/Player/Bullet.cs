@@ -1,20 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Camera _camera;
 
-    private void Awake()
-    {
-        _camera = Camera.main;
-    }
+    // public Vector2 direction;
+    // public float speed = 20;
+    // public Vector2 velocity;
 
-    private void Update()
-    {
-        DestroyWhenOffScreen();
-    }
+    // void Start()
+    // {
+    //     Destroy(gameObject, 3);
+    // }
+
+    // void Update()
+    // {
+    //     velocity = speed * transform.up;
+    // }
+
+    // private void FixedUpdate()
+    // {
+    //     Vector2 pos = transform.position;
+    //     pos += velocity * Time.fixedDeltaTime;
+    //     transform.position = pos;
+    // }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,19 +33,8 @@ public class Bullet : MonoBehaviour
         {
             HealthController healthController = collision.GetComponent<HealthController>();
             healthController.TakeDamage(10);
-            //Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }
 
-    private void DestroyWhenOffScreen()
-    {
-        Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
-
-        if (screenPosition.x < 0 || screenPosition.x > _camera.pixelWidth || 
-            screenPosition.y < 0 || screenPosition.y > _camera.pixelHeight)
-        {
-            Destroy(gameObject);
-        }
-    }
 }

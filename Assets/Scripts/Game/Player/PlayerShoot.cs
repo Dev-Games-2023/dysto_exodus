@@ -1,58 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+// using System.Collections;
+// using System.Collections.Generic;
+// using Unity.VisualScripting;
+// using UnityEngine;
+// using UnityEngine.InputSystem;
 
-public class PlayerShoot : MonoBehaviour
-{
-    [SerializeField]
-    private GameObject _bulletPrefab;
+// public class PlayerShoot : MonoBehaviour
+// {
+//     public Transform gun;
+//     public Transform shootPoint;
 
-    [SerializeField]
-    private float _bulletSpeed;
+//     Vector2 direction;
 
-    [SerializeField]
-    private Transform _gunOffset;
+//     public GameObject bullet;
+//     public float bulletSpeed;
 
-    [SerializeField]
-    private float _timeBetweenShots;
+//     public float fireRate;
+//     float readyForNextShot;
 
-    private bool _fireContinuously;
-    private bool _fireSingle;
-    private float _lastFireTime;
+//     void Start()
+//     {
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (_fireContinuously || _fireSingle) 
-        {
-            float timeSinceLastFire = Time.time - _lastFireTime;
+//     }
 
-            if (timeSinceLastFire >= _timeBetweenShots)
-            {
-                FireBullet();
-                _lastFireTime = Time.time;
-                _fireSingle = false;
-            }
+//     void Update()
+//     {
+//         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//         direction = mousePos - (Vector2)gun.position;
+//         FaceMouse();
 
-        }
-    }
+//         if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Space))
+//         {
+//             if (Time.time > readyForNextShot)
+//             {
+//                 readyForNextShot = Time.time + 1/fireRate;
+//                 shoot();
+//             }
+//         }
+//     }
 
-    private void FireBullet()
-    {
-        GameObject bullet = Instantiate(_bulletPrefab, _gunOffset.position, transform.rotation);
-        Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
+//     void FaceMouse()
+//     {
+//         gun.transform.right = direction;
+//     }
 
-        rigidbody.velocity = _bulletSpeed * transform.up;
-    }
-
-    private void OnFire(InputValue inputValue)
-    {
-        _fireContinuously = inputValue.isPressed;
-
-        if (inputValue.isPressed)
-        {
-            _fireSingle = true;
-        }
-    }
-}
+//     void shoot()
+//     {
+//         GameObject bulletInstance = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+//         bulletInstance.GetComponent<Rigidbody2D>().AddForce(bulletInstance.transform.right * bulletSpeed);
+//         Destroy(bulletInstance, 3);
+//     }
+// }
