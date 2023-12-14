@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9d0b9ee3ce7d34592adf7db0d17ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToGive: {fileID: 5010071589461647874, guid: 7fc97b48e9bffb942b2323dd72684bfa, type: 3}
+  weaponToGive: {fileID: 9169903021321960204, guid: 71349a057e397de44bfa8fd4efe74378, type: 3}

@@ -40,7 +40,7 @@ public class ShotgunController : MonoBehaviour
         {
             GameObject shot = Instantiate(ammoType, firePoint.position, firePoint.rotation);
             Rigidbody2D shotRB = shot.GetComponent<Rigidbody2D>();
-            shotRB.AddForce(shotSpeed * transform.up, ForceMode2D.Impulse);
+            shotRB.AddForce(shotSpeed * firePoint.transform.up, ForceMode2D.Impulse);
             Destroy(shot, 1f);
         }
     }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
+    public int bulletDamage;
+
     // public Vector2 direction;
     // public float speed = 20;
     // public Vector2 velocity;
@@ -32,7 +34,7 @@ public class Bullet : MonoBehaviour
         if (collision.GetComponent<EnemyMovement>())
         {
             HealthController healthController = collision.GetComponent<HealthController>();
-            healthController.TakeDamage(10);
+            healthController.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
     }

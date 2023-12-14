@@ -2,22 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements.Experimental;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField]
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
 
-    [SerializeField]
-    private float _maximumHealth;
+    [SerializeField] private float _maximumHealth;
+    [SerializeField] FloatingHealthBar healthBar; 
 
     public UnityEvent OnDied;
 
     public bool IsInvincible { get; set; }
+    public bool IsDead { get; set; }
 
     public UnityEvent OnDamaged;
 
     public UnityEvent OnHealthChanged;
+
+    [Header("Events")] public GameEvent onPlayerDied;
+    [Header("Events")] public GameEvent onEnemyKilled;
+
+    void Start()
+    {
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+    }
 
     public float RemainingHealthPercentage
     {
@@ -42,6 +51,8 @@ public class HealthController : MonoBehaviour
         _currentHealth -= damageAmount;
         OnHealthChanged.Invoke();
 
+        if (healthBar) healthBar.UpdateHealthBar(_currentHealth, _maximumHealth);
+
         if (_currentHealth < 0)
         {
             _currentHealth = 0;
@@ -49,7 +60,13 @@ public class HealthController : MonoBehaviour
 
         if (_currentHealth == 0)
         {
-            OnDied.Invoke();
+            if (!healthBar) {
+                onPlayerDied.Raise(this, true);
+                OnDied.Invoke();
+            } else {
+                OnDied.Invoke();
+                onEnemyKilled.Raise(this, true);
+            }
         }
         else
         {
@@ -71,5 +88,10 @@ public class HealthController : MonoBehaviour
         {
             _currentHealth = _maximumHealth;
         }
+    }
+
+    public float CurrentHealth()
+    {
+        return _currentHealth;
     }
 }
