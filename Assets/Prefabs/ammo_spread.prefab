@@ -145,6 +145,6 @@ MonoBehaviour:
   - {fileID: 7757953980621420831}
   - {fileID: 6682953395480154630}
   ammoType: {fileID: 7574997591289434118, guid: 68eacfa6ad0e77a49a1f9c92c3d99b44, type: 3}
-  shotSpeed: 20
-  shotCounter: 0
+  shotSpeed: 7
+  shotCounter: 1
   fireRate: 0.1
