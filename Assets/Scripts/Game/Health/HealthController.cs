@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements.Experimental;
 
 public class HealthController : MonoBehaviour
 {
@@ -87,5 +88,10 @@ public class HealthController : MonoBehaviour
         {
             _currentHealth = _maximumHealth;
         }
+    }
+
+    public float CurrentHealth()
+    {
+        return _currentHealth;
     }
 }

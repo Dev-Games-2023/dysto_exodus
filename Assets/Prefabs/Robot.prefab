@@ -441,11 +441,11 @@ GameObject:
   - component: {fileID: 4298553647944816929}
   - component: {fileID: 5551113106241955927}
   - component: {fileID: 184373282575526695}
-  - component: {fileID: 4873345421100014439}
   - component: {fileID: 2227224563673974841}
-  - component: {fileID: 7991706211528879066}
+  - component: {fileID: 4387749124240862135}
+  - component: {fileID: 1940794183718706795}
   m_Layer: 0
-  m_Name: Looter
+  m_Name: Robot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -579,13 +579,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af4cade73879ad49a80a8d489a5a71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 50
-  _maximumHealth: 50
+  _currentHealth: 100
+  _maximumHealth: 100
   healthBar: {fileID: 2332692032449453313}
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4873345421100014439}
+      - m_Target: {fileID: 4387749124240862135}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -703,27 +703,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chanceOfCollectableDrop: 0.2
---- !u!95 &4873345421100014439
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8444731861883157456}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: da03fd2ea64a52c428580a7719b252b9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2227224563673974841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,9 +715,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b1dd84573c46d4aa29c40acfe8ebe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7574997591289434118, guid: 38a2872fa1497a34fa79b8c9de8e2bfc, type: 3}
+  bullet: {fileID: 7574997591289434118, guid: 9b6f9a3530a82334881390806a018e22, type: 3}
   bulletPos: {fileID: 4217779766612410978}
---- !u!114 &7991706211528879066
+--- !u!95 &4387749124240862135
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8444731861883157456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe9b2074fdcc9f240bf6b8a8e64210b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1940794183718706795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -827,12 +827,12 @@ SpriteRenderer:
   m_SortingLayerID: 1333646097
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 051cc8e9919b2ef42a594be6bb2d30e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bb0308d1206bcb488b8ccb4b5bd6704, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.52, y: 0.43}
+  m_Size: {x: 0.95, y: 0.93333334}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

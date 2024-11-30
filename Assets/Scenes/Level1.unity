@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8cc7f0d27821f4b8e17eda778b3ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 0
+  numberOfEnemies: 10
   gameOverMenu: {fileID: 121417695}
   winLevelMenu: {fileID: 95952887}
 --- !u!114 &95952890
